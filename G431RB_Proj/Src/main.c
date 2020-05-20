@@ -98,10 +98,10 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-		HAL_Delay(500);
-		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-		HAL_Delay(500);
-		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+	  HAL_Delay(500);
+	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+	  HAL_Delay(500);
+	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
