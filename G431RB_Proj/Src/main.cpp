@@ -26,6 +26,19 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+template<typename T> class mySqrt{
+private:
+	T mOldVal;
+public:
+	mySqrt(T pInitVal) {
+		mOldVal = pInitVal;
+	}
+	constexpr T Calc(const T &pInput) {
+		T val = (mOldVal + pInput/mOldVal) * (T)0.5;
+		mOldVal = val;
+		return val;
+	}
+};
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -95,13 +108,17 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  mySqrt<float> msqrt(0.1f);
+
   while (1)
   {
     /* USER CODE END WHILE */
-	  HAL_Delay(500);
-	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-	  HAL_Delay(500);
-	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+	float sqrt5 = msqrt.Calc(5.0f);
+	int delay = 100 * sqrt5;
+	HAL_Delay(delay);
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+	HAL_Delay(delay);
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
